@@ -32,6 +32,8 @@ let pages = document.querySelector('#pages').value; // # of pages form
 let readOrNot = document.querySelector('#checkbox').value; //checkbox for if read or not 
 let allBooks = document.querySelectorAll('.newBook');
 
+console.log(allBooks);
+
 //function that creates a new book whenever submit is clicked
 // submitBtn.addEventListener('click', () => { 
 //   console.log(authorName);
@@ -88,17 +90,16 @@ function hideBookPage () {
 }
 
 function showAllBooks () { 
-for (var i=0;i<allBooks.length;i+=1){
-  allBooks[i].style.display = 'flex';
-}
+  document.querySelectorAll(".newBook").forEach(a=>a.style.display = "block");
 }
 
+
+let book = document.querySelector('.newBook');
 function hideAllBooks() { 
+  document.querySelectorAll(".newBook").forEach(a=>a.style.display = "none");
+}
 
-for (let i=0;i<allBooks.length;i+=1){
-  allBooks[i].style.display = "none";
-}
-}
+
 
 
 
@@ -106,11 +107,11 @@ function newCard() {
     let newdiv  = document.createElement('div');
     newdiv.className+='newBook';
     let bookName = document.createElement('p');
-    bookName.textContent = myLibrary[0].bookName;
+    bookName.textContent = "Book Name: " + myLibrary[0].bookName;
     let authorName = document.createElement('p');
-    authorName.textContent = myLibrary[0].authorName;
+    authorName.textContent = "Author: " + myLibrary[0].authorName;
     let pages = document.createElement('p');
-    pages.textContent = myLibrary[0].pages;
+    pages.textContent = "Pages: " + myLibrary[0].pages;
     let readOrNot = document.createElement('p');
     readOrNot.textContent = myLibrary[0].readOrNot;
     newdiv.appendChild(bookName);

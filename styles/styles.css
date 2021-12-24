@@ -30,9 +30,9 @@ letter-spacing: 2px;
     display:flex;
     justify-content: space-around;
     align-items: center;
-    
     position: relative;
-    top: 10vh;
+    top: 0vh;
+    left: 35vw;
     width: 30vw;
     height: 50vh;
     background-color: #f1faee;
@@ -89,7 +89,6 @@ width: 19vw
 }
 
 
-
 body { 
     background-color: #CBDFBD;
 }
@@ -98,9 +97,9 @@ body {
 .newBook { 
     margin : 20px;
     padding: 20px;
-    border-style: groove;
-    border-color:#005f73;
-    box-shadow:0 0 20px #a8dadc;
+    border-style: outset;
+    border-color:#CBDFBD;
+    box-shadow:20px 20px 20px #a8dadc;
     
     
 }
