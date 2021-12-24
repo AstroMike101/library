@@ -30,7 +30,7 @@ let bookName = document.querySelector('#bookName').value; //name of book form va
 let authorName = document.querySelector('#authorName').value; // name of author form
 let pages = document.querySelector('#pages').value; // # of pages form 
 let readOrNot = document.querySelector('#checkbox').value; //checkbox for if read or not 
-
+let allBooks = document.querySelectorAll('.newBook');
 
 //function that creates a new book whenever submit is clicked
 // submitBtn.addEventListener('click', () => { 
@@ -65,10 +65,13 @@ myLibrary = [];
 
 bookBtn.addEventListener('click', () => { 
     showAddBookPage();
+    hideAllBooks();
+
 })
 
 submitBtn.addEventListener('click', () => { 
     hideBookPage();
+    showAllBooks();
 })
 
 
@@ -82,6 +85,19 @@ addBookPage.style.display = "flex";
 function hideBookPage () { 
     addBookPage.style.display = "none";
 
+}
+
+function showAllBooks () { 
+for (var i=0;i<allBooks.length;i+=1){
+  allBooks[i].style.display = 'flex';
+}
+}
+
+function hideAllBooks() { 
+
+for (let i=0;i<allBooks.length;i+=1){
+  allBooks[i].style.display = "none";
+}
 }
 
 
