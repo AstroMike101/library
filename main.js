@@ -7,15 +7,28 @@ function Book(author,title,pages,status) {
   this.status = status;
 }
 
-function addBookToLibrary() {
-  // do stuff here
 
+
+function addBookToLibrary() { 
+  let newdiv  = document.createElement('div');
+  newdiv.className+='newBook';
+  let bookName = document.createElement('p');
+  bookName.textContent = "Book Name: " + myLibrary[0].bookName;
+  let authorName = document.createElement('p');
+  authorName.textContent = "Author: " + myLibrary[0].authorName;
+  let pages = document.createElement('p');
+  pages.textContent = "Pages: " + myLibrary[0].pages;
+  let readOrNot = document.createElement('p');
+  readOrNot.textContent = "Already read?: " + myLibrary[0].readOrNot;
+  newdiv.appendChild(bookName);
+  newdiv.appendChild(authorName);
+  newdiv.appendChild(pages);
+  newdiv.appendChild(readOrNot);
+  mainPage.appendChild(newdiv);
+
+  
 }
 
-
-// function displayBooks { 
-
-// }
 
 let mainPage = document.querySelector('.books'); //main page of website
 let addBookPage = document.querySelector('.addBookPage'); //the div that has the form
@@ -34,16 +47,9 @@ let allBooks = document.querySelectorAll('.newBook');
 
 console.log(allBooks);
 
-//function that creates a new book whenever submit is clicked
-// submitBtn.addEventListener('click', () => { 
-//   console.log(authorName);
-//  let book2= new Book((authorName,bookName,pages,readOrNot));
-//  console.log(book2);
-
-// })
-
 //prevents the submit button from refreshing everything
-let formvalues = document.querySelectorAll('.formBoxes');
+let formvalues = document.querySelectorAll('.formBoxes'); //forms for book
+let readOrNotBox = document.querySelector('#checkbox');
 //transform the data inside the forms into an object
 mainform.addEventListener('submit', (e) => { 
 e.preventDefault();
@@ -51,13 +57,15 @@ let newBook = {
   bookName:document.querySelector('#bookName').value, //name of book form value
   authorName:document.querySelector('#authorName').value, // name of author form
   pages:document.querySelector('#pages').value, // # of pages form 
-  readOrNot:document.querySelector('#checkbox').value //checkbox for if read
+  // readOrNot:document.querySelector('#checkbox').value //checkbox for if read
+  readOrNot:document.querySelector('#checkbox').checked.toString().toUpperCase()
 
 }
 myLibrary.push(newBook);
-formvalues.forEach(formvalues =>  formvalues.value = '');
+formvalues.forEach(formvalues =>  formvalues.value = ''); //resets all forms
+
 console.log(myLibrary);
-newCard();
+addBookToLibrary();
 myLibrary = [];
 })
 
@@ -103,32 +111,8 @@ function hideAllBooks() {
 
 
 
-function newCard() { 
-    let newdiv  = document.createElement('div');
-    newdiv.className+='newBook';
-    let bookName = document.createElement('p');
-    bookName.textContent = "Book Name: " + myLibrary[0].bookName;
-    let authorName = document.createElement('p');
-    authorName.textContent = "Author: " + myLibrary[0].authorName;
-    let pages = document.createElement('p');
-    pages.textContent = "Pages: " + myLibrary[0].pages;
-    let readOrNot = document.createElement('p');
-    readOrNot.textContent = myLibrary[0].readOrNot;
-    newdiv.appendChild(bookName);
-    newdiv.appendChild(authorName);
-    newdiv.appendChild(pages);
-    newdiv.appendChild(readOrNot);
-    mainPage.appendChild(newdiv);
-
-    
-}
 
 
 
     
 
-
-
-// function addBookBtn { 
-
-// }
