@@ -103,3 +103,35 @@ body {
     
     
 }
+
+.readBtn { 
+    position: relative;
+    background-color: rgb(224, 79, 99);
+    font-size: 12px;
+    height: 35px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 15px;
+    border: solid 3px black;
+    right: 12px;
+    cursor:pointer;
+}
+
+.removeBtn { 
+    position: relative;
+    background-color: rgb(224, 79, 99);
+    font-size: 12px;
+    height: 35px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 15px;
+    border: solid 3px black;
+    cursor:pointer;
+}
+
+
+/* for the book info that dispalys */
+
+.info { 
+    padding: 3px;
+}

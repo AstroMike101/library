@@ -1,33 +1,6 @@
 let myLibrary = [];
+let librarySaved = [];
 
-function Book(author,title,pages,status) {
-  this.author = author; 
-  this.title = title;
-  this.pages = pages;
-  this.status = status;
-}
-
-
-
-function addBookToLibrary() { 
-  let newdiv  = document.createElement('div');
-  newdiv.className+='newBook';
-  let bookName = document.createElement('p');
-  bookName.textContent = "Book Name: " + myLibrary[0].bookName;
-  let authorName = document.createElement('p');
-  authorName.textContent = "Author: " + myLibrary[0].authorName;
-  let pages = document.createElement('p');
-  pages.textContent = "Pages: " + myLibrary[0].pages;
-  let readOrNot = document.createElement('p');
-  readOrNot.textContent = "Already read?: " + myLibrary[0].readOrNot;
-  newdiv.appendChild(bookName);
-  newdiv.appendChild(authorName);
-  newdiv.appendChild(pages);
-  newdiv.appendChild(readOrNot);
-  mainPage.appendChild(newdiv);
-
-  
-}
 
 
 let mainPage = document.querySelector('.books'); //main page of website
@@ -44,6 +17,60 @@ let authorName = document.querySelector('#authorName').value; // name of author 
 let pages = document.querySelector('#pages').value; // # of pages form 
 let readOrNot = document.querySelector('#checkbox').value; //checkbox for if read or not 
 let allBooks = document.querySelectorAll('.newBook');
+
+
+
+
+function addBookToLibrary() { 
+  let newdiv  = document.createElement('div');
+  newdiv.className+='newBook';
+  let bookName = document.createElement('p');
+  bookName.textContent = "Book Name: " + myLibrary[0].bookName;
+  let authorName = document.createElement('p');
+  authorName.textContent = "Author: " + myLibrary[0].authorName;
+  let pages = document.createElement('p');
+  pages.textContent = "Pages: " + myLibrary[0].pages;
+  const readBtn = document.createElement('button');
+  const removeBtn = document.createElement('button');
+
+  bookName.classList.add('info');
+  authorName.classList.add('info');
+  pages.classList.add('info');
+  readBtn.classList.add('readBtn');
+  removeBtn.classList.add('removeBtn');
+  removeBtn.textContent = 'Remove'; 
+
+
+  removeBtn.addEventListener('click', (e) => {
+    e.target.parentElement.remove()
+  });
+
+
+  
+
+  if(myLibrary[0].readOrNot === "FALSE") {
+    readBtn.textContent = 'Not Read';
+    readBtn.style.backgroundColor = '#e04f63';
+}else {
+    readBtn.textContent = "READ";
+    readBtn.style.backgroundColor = '#63da63'
+}
+
+
+  newdiv.appendChild(bookName);
+  newdiv.appendChild(authorName);
+  newdiv.appendChild(pages);
+  newdiv.appendChild(readBtn);
+  newdiv.appendChild(removeBtn);
+  mainPage.appendChild(newdiv);
+
+  
+}
+
+
+
+
+
 
 console.log(allBooks);
 
@@ -62,13 +89,13 @@ let newBook = {
 
 }
 myLibrary.push(newBook);
+librarySaved.push(newBook);
 formvalues.forEach(formvalues =>  formvalues.value = ''); //resets all forms
 
 console.log(myLibrary);
 addBookToLibrary();
 myLibrary = [];
 })
-
 
 
 
@@ -106,9 +133,6 @@ let book = document.querySelector('.newBook');
 function hideAllBooks() { 
   document.querySelectorAll(".newBook").forEach(a=>a.style.display = "none");
 }
-
-
-
 
 
 
