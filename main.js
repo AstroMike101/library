@@ -45,8 +45,18 @@ function addBookToLibrary() {
     e.target.parentElement.remove()
   });
 
-
-  
+  readBtn.addEventListener('click', () => {
+    if(readBtn.classList.contains('active')) {
+      readBtn.classList.remove('active');
+      readBtn.classList.add('inactive');
+      readBtn.textContent = 'Not Read';
+      
+    }else { 
+      readBtn.classList.remove('inactive');
+      readBtn.classList.add('active');
+      readBtn.textContent = "READ";
+    }
+  })
 
   if(myLibrary[0].readOrNot === "FALSE") {
     readBtn.textContent = 'Not Read';
@@ -54,6 +64,7 @@ function addBookToLibrary() {
 }else {
     readBtn.textContent = "READ";
     readBtn.style.backgroundColor = '#63da63'
+    readBtn.classList.add('active');
 }
 
 

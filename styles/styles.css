@@ -119,7 +119,7 @@ body {
 
 .removeBtn { 
     position: relative;
-    background-color: rgb(224, 79, 99);
+    background-color: white;
     font-size: 12px;
     height: 35px;
     width: 100px;
@@ -127,6 +127,14 @@ body {
     border-radius: 15px;
     border: solid 3px black;
     cursor:pointer;
+}
+
+.active { 
+    background-color: #90ee90 !important;
+}
+
+.inactive { 
+    background-color: rgb(224, 79, 99) !important;
 }
 
 
